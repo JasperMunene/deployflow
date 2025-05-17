@@ -3,12 +3,61 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { RocketIcon, GitBranchIcon, GlobeIcon, ServerIcon, ShieldIcon, BarChartIcon } from "lucide-react";
+import { RocketIcon, GitBranchIcon, GlobeIcon, ServerIcon, ShieldIcon, BarChartIcon, type LucideProps } from "lucide-react";
+
+const featureDetails = {
+  instant: [
+    "Zero-config deployments from Git",
+    "Automatic builds for your framework",
+    "Intelligent caching for faster builds",
+    "Rollback to any previous deployment",
+  ],
+  preview: [
+    "Unique URL for every branch and PR",
+    "Share preview links with your team",
+    "Compare changes visually before merging",
+    "Automatic deployment when PRs are updated",
+  ],
+  global: [
+    "Content served from 300+ edge locations",
+    "Automatic CDN caching configuration",
+    "Intelligent routing to the closest region",
+    "Global load balancing and failover",
+  ],
+  serverless: [
+    "Write functions in JavaScript, TypeScript, or Go",
+    "Automatic scaling with no cold starts",
+    "Connect to any database or API",
+    "Local development environment",
+  ],
+  security: [
+    "Free SSL certificates for all domains",
+    "Automatic HTTPS redirects",
+    "DDoS protection at the edge",
+    "Regular security audits and updates",
+  ],
+  analytics: [
+    "Real-time performance monitoring",
+    "Error tracking and alerting",
+    "User behavior analytics",
+    "Customizable dashboards and reports",
+  ],
+} as const;
+
+type FeatureId = keyof typeof featureDetails;
+
+interface Feature {
+  id: FeatureId;
+  name: string;
+  description: string;
+  icon: React.ComponentType<LucideProps>;
+  image: string;
+}
 
 export function FeaturesSection() {
   const [activeTab, setActiveTab] = useState("instant");
 
-  const features = [
+  const features: Feature[] = [
     {
       id: "instant",
       name: "Instant Deployments",
@@ -166,44 +215,6 @@ export function FeaturesSection() {
   );
 }
 
-const featureDetails = {
-  instant: [
-    "Zero-config deployments from Git",
-    "Automatic builds for your framework",
-    "Intelligent caching for faster builds",
-    "Rollback to any previous deployment",
-  ],
-  preview: [
-    "Unique URL for every branch and PR",
-    "Share preview links with your team",
-    "Compare changes visually before merging",
-    "Automatic deployment when PRs are updated",
-  ],
-  global: [
-    "Content served from 300+ edge locations",
-    "Automatic CDN caching configuration",
-    "Intelligent routing to the closest region",
-    "Global load balancing and failover",
-  ],
-  serverless: [
-    "Write functions in JavaScript, TypeScript, or Go",
-    "Automatic scaling with no cold starts",
-    "Connect to any database or API",
-    "Local development environment",
-  ],
-  security: [
-    "Free SSL certificates for all domains",
-    "Automatic HTTPS redirects",
-    "DDoS protection at the edge",
-    "Regular security audits and updates",
-  ],
-  analytics: [
-    "Real-time performance monitoring",
-    "Error tracking and alerting",
-    "User behavior analytics",
-    "Customizable dashboards and reports",
-  ],
-};
 
 function FeatureIllustration({ feature }: { feature: string }) {
   // In a real app, these would be actual images or more complex SVGs
