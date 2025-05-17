@@ -8,7 +8,7 @@ import { Footer } from '@/components/footer';
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Evelon | Modern Deployment Platform',
+  title: 'Deploy Flow | Modern Deployment Platform',
   description: 'Deploy your web applications with ease and speed. Get started today.',
 };
 
