@@ -66,10 +66,10 @@ export function Navbar() {
         </div>
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="sm" className="mr-2" asChild>
-            <Link href="/login">Login</Link>
+            <Link href="#">Login</Link>
           </Button>
           <Button asChild>
-            <Link href="/signup">Get Started</Link>
+            <Link href="#">Get Started</Link>
           </Button>
           <Button
             variant="ghost"
